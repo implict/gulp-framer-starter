@@ -32,7 +32,7 @@ var config = {
  */
 
 // The default task - called when you run `gulp` from CLI
-gulp.task('default', ['watch', 'serve', 'coffee', 'clean', 'move']);
+gulp.task('default', ['clean', 'watch', 'serve', 'coffee', 'move']);
 
 // `gulp watch` task watching for file changes
 gulp.task('watch', ['connect'], function () {
@@ -53,7 +53,7 @@ gulp.task('watch', ['connect'], function () {
   });
 
 	// watch for coffeescript file changes
-	gulp.watch(['./src/coffee/*.coffee'], ['coffee']);
+	gulp.watch(['./src/coffee/**'], ['coffee']);
   gulp.watch(['./src/*.html'], ['move']);
 });
 
@@ -92,6 +92,15 @@ gulp.task('move', function(){
   // preserving the folder structure
   gulp.src('src/*.html', {base: 'src'})
   .pipe(gulp.dest('dist'));
+
+	gulp.src('src/css/*.css', {base: 'src/css'})
+  .pipe(gulp.dest('dist/css'));
+
+	gulp.src('src/js/**/*.js', {base: 'src/js'})
+  .pipe(gulp.dest('dist/js'));
+
+	gulp.src('src/images/**/*.*', {base: 'src/images'})
+  .pipe(gulp.dest('dist/images'));
 });
 
 // coffeescript

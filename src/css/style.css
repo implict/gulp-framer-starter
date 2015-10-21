@@ -1,6 +1,14 @@
-@charset 'utf-8';
-@import 'modules/base.css';
-@import 'modules/layout.css';
-@import 'modules/module.css';
-@import 'modules/state.css';
-@import 'modules/theme.css';
+* {
+  margin:0;
+  padding:0;
+  border:none;
+}
+
+body {
+  font-family: "Helvetica";
+  color: #000;
+}
+
+a {
+  color: #bfbfbf;
+}
